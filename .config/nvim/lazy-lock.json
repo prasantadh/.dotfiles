@@ -1,5 +1,6 @@
 {
   "coc.nvim": { "branch": "release", "commit": "9332d2ab1154dedc9dbcd3e1c873886abaf061a6" },
   "lazy.nvim": { "branch": "main", "commit": "3ad55ae678876516156cca2f361c51f7952a924b" },
+  "nvim-tmux-navigation": { "branch": "main", "commit": "543f090a45cef28156162883d2412fffecb6b750" },
   "tokyonight.nvim": { "branch": "main", "commit": "1ee11019f8a81dac989ae1db1a013e3d582e2033" }
 }
