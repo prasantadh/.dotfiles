@@ -19,6 +19,16 @@ return
                             ["<C-j>"] = actions.move_selection_next
                         }
                     }
+                },
+                pickers = {
+                    find_files = {
+                        theme = "dropdown",
+                        previewer = false
+                    },
+                    buffers = {
+                        theme = "dropdown",
+                        previewer = false
+                    }
                 }
             })
         end
