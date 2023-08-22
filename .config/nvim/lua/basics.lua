@@ -1,3 +1,4 @@
+vim.o.paste = false
 vim.o.expandtab = true
 vim.o.smarttab = true
 vim.o.shiftwidth = 4
