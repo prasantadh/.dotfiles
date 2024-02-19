@@ -18,15 +18,22 @@ return
                             ["<C-k>"] = actions.move_selection_previous,
                             ["<C-j>"] = actions.move_selection_next
                         }
+                    },
+                    layout_strategy = "horizontal",
+                    sorting_strategy = "ascending",
+                    layout_config = {
+                        prompt_position = "top",
+                        preview_width = 80,
+                        width = 0.75,
+                        height = 0.75
                     }
+
                 },
                 pickers = {
                     find_files = {
-                        theme = "dropdown",
-                        previewer = false
+                        previewer = true
                     },
                     buffers = {
-                        theme = "dropdown",
                         previewer = false
                     }
                 }

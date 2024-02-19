@@ -185,7 +185,7 @@ keyset("n", "<space>k", ":<C-u>CocPrev<cr>", opts)
 keyset("n", "<space>p", ":<C-u>CocListResume<cr>", opts)
 
 -- add some of my own config so when transported, coc installs what I am used to
-vim.g.coc_global_extensions = {'coc-go', 'coc-explorer', 'coc-rust-analyzer', 'coc-json'}
+vim.g.coc_global_extensions = {'coc-go', 'coc-rust-analyzer', 'coc-json'}
 
 return 
 {
