@@ -23,8 +23,15 @@ At this point, I am deciding to have an intentional smaller set of configs
 for things that I want. The online provided configs were a great crutch
 to begin. Now that I am more aware of what is possible, I am branching out.
 
+# USAGE
+
 This repo is setup in alignment with [this atlassian blogpost][atlassian-dotfiles].
 
+```bash
+# make sure the necessary ssh keys are configured
+$ git clone --bare git@github.com:prasantadh/.dotfiles.git
+$ alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+```
 [neovim-lua]: https://neovim.io/doc/user/lua.html
 
 [atlassian-dotfiles]: https://www.atlassian.com/git/tutorials/dotfiles
