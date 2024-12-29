@@ -30,7 +30,7 @@ This repo is setup in alignment with [this atlassian blogpost][atlassian-dotfile
 ```bash
 # make sure the necessary ssh keys are configured
 $ git clone --bare git@github.com:prasantadh/.dotfiles.git
-$ alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+$ alias config="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 ```
 [neovim-lua]: https://neovim.io/doc/user/lua.html
 
