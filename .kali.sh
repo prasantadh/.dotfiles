@@ -8,7 +8,7 @@ sudo apt -y autoremove
 # auto install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sed '/exec/d')"
 zsh -c "git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
-sed -i 's/(git)/(git z zsh-autosuggestions)' ~/.zshrc
+sed -i 's/(git)/(git z zsh-autosuggestions)/' ~/.zshrc
 
 # installing a nerd font, adjust terminal pref and restart for effect
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Hack.zip
@@ -46,5 +46,13 @@ sudo -E bash nodesource_setup.sh
 sudo apt install -y nodejs
 rm nodesource_setup.sh
 
-# TODO may be install other kali stuff
-# like bloodhound, seclists
+# some neovim dependencies
+cargo install --locked tree-sitter-cli
+cargo install --locked bottom
+sudo apt install ripgrep
+conda install -c conda-forge lazygit
+curl -L https://github.com/dundee/gdu/releases/latest/download/gdu_linux_amd64.tgz | tar xz
+chmod +x gdu_linux_amd64
+mv gdu_linux_amd64 /usr/bin/gdu
+
+sudo apt install seclists
