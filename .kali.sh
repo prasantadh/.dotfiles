@@ -14,19 +14,18 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o rust-init.sh
 chmod +x rust-init.sh
 ./rust-init.sh -y
+eval "$(cat $HOME/.cargo/env)"
 which cargo
 rm ./rust-init.sh
-# TODO can this be non-interactive?
 
 # install miniconda
 mkdir -p ~/miniconda3
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/.miniconda3/miniconda.sh
-bash ~/miniconda3/miniconda.sh -b -u -p ~/.miniconda3
-rm ~/.miniconda3/miniconda.sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
+bash ~/miniconda.sh -b -u -p ~/.miniconda3
+rm ~/miniconda.sh
 ~/.miniconda3/bin/conda init zsh
 ~/.miniconda3/bin/conda init bash
 eval "$(cat ~/.bashrc | tail -n +15)"
-# TODO can this be installed in ~/.miniconda3
 
 pip install pwntools
 
@@ -38,7 +37,7 @@ bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
 # install node from nodesource
 curl -fsSL https://deb.nodesource.com/setup_23.x -o nodesource_setup.sh
 sudo -E bash nodesource_setup.sh
-sudo -E bash nodesource_setup.sh
+sudo apt install -y nodejs
 rm nodesource_setup.sh
 
 # TODO may be install other kali stuff
