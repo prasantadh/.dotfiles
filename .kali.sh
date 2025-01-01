@@ -7,8 +7,14 @@ sudo apt -y autoremove
 
 # auto install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sed '/exec/d')"
-# install some needed zsh plugins, nerd fonts and powerlevel10k
-# https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Meslo.zip
+zsh -c "git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+sed -i 's/(git)/(git z zsh-autosuggestions)' ~/.zshrc
+
+# installing a nerd font, adjust terminal pref and restart for effect
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Hack.zip
+unzip Hack.zip -d ~/.fonts
+fc-cache -fv
+rm Hack.zip
 
 # install rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o rust-init.sh
@@ -30,7 +36,7 @@ eval "$(cat ~/.bashrc | tail -n +15)"
 pip install pwntools
 
 # install neovim gdb
-sudo apt install -y neovim gdb
+sudo apt install -y neovim gdb vim-gtk3
 # install GEF
 bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
 
