@@ -5,10 +5,15 @@ sudo apt -y update
 sudo apt -y dist-upgrade
 sudo apt -y autoremove
 
-# auto install oh my zsh
+sudo apt install -y seclists gobuster inotify-tools
+
+# install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sed '/exec/d')"
 zsh -c "git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 sed -i 's/(git)/(git z zsh-autosuggestions)/' ~/.zshrc
+
+#install tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # installing a nerd font, adjust terminal pref and restart for effect
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Hack.zip
@@ -33,10 +38,18 @@ rm ~/miniconda.sh
 ~/.miniconda3/bin/conda init bash
 eval "$(cat ~/.bashrc | tail -n +15)"
 
-pip install pwntools
+pip install pwntools bs4
 
 # install neovim gdb
-sudo apt install -y neovim gdb vim-gtk3
+sudo apt install -y cmake gettext gdb vim-gtk3
+mkdir -p ~/.local/src
+git clone https://github.com/neovim/neovim.git ~/.local/src/
+cd ~/.local/src/neovim
+git checkout v0.10.3
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+cd
+
 # install GEF
 bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
 
@@ -55,4 +68,6 @@ curl -L https://github.com/dundee/gdu/releases/latest/download/gdu_linux_amd64.t
 chmod +x gdu_linux_amd64
 sudo mv gdu_linux_amd64 /usr/bin/gdu
 
-sudo apt install -y seclists
+
+echo "Remember to set terminal emulation to Kali Linux"
+echo "Remember to run Prefix+I inside tmux to install plugins"
