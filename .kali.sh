@@ -1,12 +1,10 @@
 #!/bin/bash
 set -e -x -u -o pipefail
 
-sudo apt -y update 
-sudo apt -y dist-upgrade
-sudo apt -y autoremove
+sudo apt update && sudo apt -y dist-upgrade && sudo apt -y autoremove
 
-#TODO remember to put seclists back in.
-sudo apt install -y gobuster inotify-tools
+# install dependencies
+sudo apt install -y cmake gettext
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sed '/exec/d')"
@@ -42,8 +40,6 @@ eval "$(cat ~/.bashrc | tail -n +15)"
 pip install pwntools bs4
 
 # install neovim gdb
-sudo apt update --fix-missing
-sudo apt install -y cmake gettext gdb vim-gtk3
 mkdir -p ~/.local/src
 git clone https://github.com/neovim/neovim.git ~/.local/src/neovim
 cd ~/.local/src/neovim
@@ -58,18 +54,16 @@ bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
 # install node from nodesource
 curl -fsSL https://deb.nodesource.com/setup_23.x -o nodesource_setup.sh
 sudo -E bash nodesource_setup.sh
-sudo apt install -y nodejs
 rm nodesource_setup.sh
 
 # some neovim dependencies
 cargo install --locked tree-sitter-cli
 cargo install --locked bottom
-sudo apt install ripgrep
 conda install -y -c conda-forge lazygit
 curl -L https://github.com/dundee/gdu/releases/latest/download/gdu_linux_amd64.tgz | tar xz
 chmod +x gdu_linux_amd64
 sudo mv gdu_linux_amd64 /usr/bin/gdu
 
-
-echo "Remember to set terminal emulation to Kali Linux"
-echo "Remember to run Prefix+I inside tmux to install plugins"
+sudo apt install -y ripgrep vim-gtk3 gdb seclists nodejs 
+echo "TODO: change emulation in terminal from default to linux"
+echo "TODO: Prefix+I inside tmux to install plugins"
