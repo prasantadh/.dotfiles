@@ -45,7 +45,7 @@ pip install pwntools bs4
 sudo apt update --fix-missing
 sudo apt install -y cmake gettext gdb vim-gtk3
 mkdir -p ~/.local/src
-git clone https://github.com/neovim/neovim.git ~/.local/src/
+git clone https://github.com/neovim/neovim.git ~/.local/src/neovim
 cd ~/.local/src/neovim
 git checkout v0.10.3
 make CMAKE_BUILD_TYPE=RelWithDebInfo
