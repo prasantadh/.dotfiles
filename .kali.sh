@@ -44,7 +44,7 @@ mkdir -p ~/.local/src
 git clone https://github.com/neovim/neovim.git ~/.local/src/neovim
 cd ~/.local/src/neovim
 git checkout v0.10.3
-make CMAKE_BUILD_TYPE=RelWithDebInfo
+make CMAKE_BUILD_TYPE=Release
 sudo make install
 cd
 
