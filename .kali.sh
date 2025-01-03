@@ -5,7 +5,8 @@ sudo apt -y update
 sudo apt -y dist-upgrade
 sudo apt -y autoremove
 
-sudo apt install -y seclists gobuster inotify-tools
+#TODO remember to put seclists back in.
+sudo apt install -y gobuster inotify-tools
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sed '/exec/d')"
@@ -41,6 +42,7 @@ eval "$(cat ~/.bashrc | tail -n +15)"
 pip install pwntools bs4
 
 # install neovim gdb
+sudo apt update --fix-missing
 sudo apt install -y cmake gettext gdb vim-gtk3
 mkdir -p ~/.local/src
 git clone https://github.com/neovim/neovim.git ~/.local/src/
